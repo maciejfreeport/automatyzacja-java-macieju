@@ -7,10 +7,9 @@ public class Rectangle extends AbstractShape {
 	
 	public Rectangle(double a, double b) {
 		this.a = a;
-		this.a = b;
+		this.b = b;
 	}
 
-	@Override
 	public double getArea() {
 		return a*b;
 	}

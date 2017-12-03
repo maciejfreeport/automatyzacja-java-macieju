@@ -1,9 +1,9 @@
 package codesprinters.autojava;
 
-public class Circle {
+public class Circle extends AbstractShape{
 
 	public double getR() {
-		return 0;
+		return r;
 	}
 
 	private double r;
@@ -12,9 +12,8 @@ public class Circle {
 		this.r = r;
 	}
 
-	@Override
 	public double getArea() {
-		return Math.PI * r - r;
+		return Math.PI * r * r;
 	}
 
 }
