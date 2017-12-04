@@ -8,17 +8,32 @@ import pageobjects.pages.GoogleResultPage;
 
 public class GoogleSearchTests extends BaseTest {
 
-    @Test
-    public void OpenBrowser() {
-
-        //arrange
+    private GoogleResultPage searchOnGoogle(String pageName) {
         GoogleMainPage mainPage = new GoogleMainPage(driver);
         mainPage.open();
 
-        //act
-        GoogleResultPage resultPage = mainPage.searchFor(CodeSprinters.PAGE_NAME);
+        return mainPage.searchFor(pageName);
+    }
+
+    @Test
+    public void verifyGoogleFindsCodeSprintersPage() {
+
+        GoogleResultPage resultPage = searchOnGoogle(CodeSprinters.PAGE_NAME);
 
         //assert
-        Assert.assertTrue("CS page found", resultPage.countResultWithUrl(CodeSprinters.PAGE_URL) > 0);
+        Assert.assertTrue("'" + CodeSprinters.PAGE_NAME + "' page found", resultPage
+                .countResultWithUrl(CodeSprinters.PAGE_URL) > 0);
+    }
+
+    @Test
+    public void verifyGoogleShowsNoCodeSprintersOnSecondPage() {
+
+        GoogleResultPage resultPage = searchOnGoogle(CodeSprinters.PAGE_NAME);
+        GoogleResultPage secondResultPage = resultPage.displayNextPage();
+
+        Assert.assertTrue("Pages with URL starting with '" + CodeSprinters.PAGE_URL + "' not found",
+                secondResultPage.countResultsWithUrlMatching(CodeSprinters.PAGE_URL) == 0);
+
+
     }
 }

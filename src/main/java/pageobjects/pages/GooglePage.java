@@ -2,7 +2,7 @@ package pageobjects.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class GooglePage {
+public abstract class GooglePage {
 
     protected static final String GOOGLE_ADDRESS = "https://www.google.com";
     protected WebDriver driver;
