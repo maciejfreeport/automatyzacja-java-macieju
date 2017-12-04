@@ -19,6 +19,7 @@ public class SeleniumTest {
     private static final String LOCATOR_CS = "//*[@class = 'rc']/*[@class='r']/a[@href='http://agileszkolenia.pl/']";
     private static final String CS_PAGE_NAME = "codesprinters";
     private static final String SEARCH_BOX_LOCATION = "lst-ib";
+    private static final String GOOGLE_LINK = "https://google.com";
 
     public WebDriver driver;
 
@@ -37,7 +38,7 @@ public class SeleniumTest {
     @Test
     public void canFindCSPageOnFirstGoogleResultPage() throws InterruptedException {
 
-        driver.get("https://google.com");
+        driver.get(GOOGLE_LINK);
         WebElement searchBox = driver.findElement(By.id(SEARCH_BOX_LOCATION));
         searchBox.click();
         searchBox.clear();
