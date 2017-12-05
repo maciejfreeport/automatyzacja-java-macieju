@@ -1,3 +1,5 @@
+package calculator;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,7 +11,7 @@ public class CalculatorTest {
 
         double a = 10.0;
         double b = 5.0;
-        double result = Calculator.add(a, b);
+        double result = calculator.Calculator.add(a, b);
 
         Assert.assertEquals("10 + 5 = 15", result, 15.0, 0.00);
 
@@ -22,7 +24,7 @@ public class CalculatorTest {
 
         double a = -10.0;
         double b = -5.0;
-        double result = Calculator.add(a, b);
+        double result = calculator.Calculator.add(a, b);
 
         Assert.assertTrue("-5 + -10 = -15", result == -15);
     }
@@ -33,7 +35,7 @@ public class CalculatorTest {
         double a = 10.0;
         double b = 5.0;
 
-        Assert.assertTrue("10 - 5 = 5", Calculator.substract(a,b) == 5.0);
+        Assert.assertTrue("10 - 5 = 5", calculator.Calculator.substract(a,b) == 5.0);
     }
 
     @Test
@@ -43,7 +45,7 @@ public class CalculatorTest {
         double b = -5.0;
 
 
-        Assert.assertEquals("-5 - -10 = 5", Calculator.substract(b,a), 5, 0.0);
+        Assert.assertEquals("-5 - -10 = 5", calculator.Calculator.substract(b,a), 5, 0.0);
     }
 
     @Test
@@ -52,7 +54,7 @@ public class CalculatorTest {
         double a = 10.0;
         double b = 5.0;
 
-        Assert.assertTrue("10*5 = 50", Calculator.multiply(a,b) == 50.0);
+        Assert.assertTrue("10*5 = 50", calculator.Calculator.multiply(a,b) == 50.0);
     }
 
     @Test
@@ -61,7 +63,7 @@ public class CalculatorTest {
         double a = 5.0;
         double b = 0.0;
 
-        Assert.assertEquals("5*0 = 0", Calculator.multiply(a,b), 0, 0.0);
+        Assert.assertEquals("5*0 = 0", calculator.Calculator.multiply(a,b), 0, 0.0);
     }
 
     @Test
@@ -70,7 +72,7 @@ public class CalculatorTest {
         double a = 10.0;
         double b = 5.0;
 
-        Assert.assertTrue("10/5 = 2", Calculator.divide(a,b) == 2.0);
+        Assert.assertTrue("10/5 = 2", calculator.Calculator.divide(a,b) == 2.0);
     }
 
     @Test
@@ -79,8 +81,8 @@ public class CalculatorTest {
         double a = 5.0;
         double b = 0.0;
 
-        Assert.assertTrue("5/0 = infinity ", Double.isInfinite(Calculator.divide(a,b)));
-        Assert.assertTrue("5/0 = positive infinity ", Calculator.divide(a,b) == Double.POSITIVE_INFINITY);
+        Assert.assertTrue("5/0 = infinity ", Double.isInfinite(calculator.Calculator.divide(a,b)));
+        Assert.assertTrue("5/0 = positive infinity ", calculator.Calculator.divide(a,b) == Double.POSITIVE_INFINITY);
     }
 
 }
