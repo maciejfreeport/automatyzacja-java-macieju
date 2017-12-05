@@ -5,16 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class NotePage extends WordPressPage {
+public class WordNotePage extends WordPressPage {
 
     public static final By LOCATOR_COMMENT = By.id("comment");
     public static final By LOCATOR_EMAIL = By.id("email");
     public static final By LOCATOR_AUTHOR = By.id("author");
     public static final By LOCATOR_WEBSITE = By.id("url");
 
-    public NotePage(WebDriver driver) {
+    public WordNotePage(WebDriver driver) {
         super(driver);
     }
 
@@ -24,12 +25,8 @@ public class NotePage extends WordPressPage {
 
     }
 
-    public boolean checkComments() {
-        WebElement date = driver.findElement(By.cssSelector(".comments-area"));
-
-        if(date!=null) {
-            return true;
-        }else return false;
+    public boolean checkComment() {
+        return driver.findElement(By.cssSelector(".comments-area")) != null;
     }
 
     public void AddComment(String comment, String user_email, String user_name) {
@@ -61,4 +58,17 @@ public class NotePage extends WordPressPage {
         }else return false;
     }
 
+    public WordNoteComment findComment(String comment, String name) {
+
+        List<WebElement> webElements = driver.findElements(By.className("comment-body")).stream()
+                .filter(result -> result.findElement(By.tagName("cite")).getText().equals(name))
+                .filter(result -> result.findElement(By.cssSelector(".comment-content > p")).getText().equals(comment))
+                .collect(Collectors.toList());
+
+        if (webElements.size() > 1) {
+            throw new RuntimeException("something descriptive");
+        }
+
+        return new WordNoteComment(driver, webElements.get(0));
+    }
 }

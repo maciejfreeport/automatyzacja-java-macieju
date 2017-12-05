@@ -10,9 +10,9 @@ public class User {
     public static User RandomCommentEntry() {
         User user = new User();
 
-        user.userName = UUID.randomUUID().toString();
+        user.userName = "Tester " + UUID.randomUUID().toString();
         user.userEmail = UUID.randomUUID().toString() + "@test.com";
-        user.comment = UUID.randomUUID().toString();
+        user.comment = "Super test " + UUID.randomUUID().toString();
         return user;
     }
 

@@ -2,9 +2,9 @@ package wordpress.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class MainPage extends WordPressPage {
+public class WordPressMainPage extends WordPressPage {
 
-    public MainPage(WebDriver driver) {
+    public WordPressMainPage(WebDriver driver) {
         super(driver);
     }
 
