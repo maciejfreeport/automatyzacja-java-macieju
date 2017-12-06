@@ -3,10 +3,7 @@ package wordpress.tests;
 import org.junit.Assert;
 import org.junit.Test;
 import wordpress.domain.User;
-import wordpress.pages.WordNoteComment;
-import wordpress.pages.WordPressMainPage;
-import wordpress.pages.WordNotePage;
-import wordpress.pages.WordPressPage;
+import wordpress.pages.*;
 
 public class WordPressTests extends BaseTest {
 
@@ -67,5 +64,17 @@ public class WordPressTests extends BaseTest {
 
         Assert.assertTrue("Reply has been added", createdComment.checkComment(user.getComment(), user.getUserName()));
     }
+
+    @Test
+    public void verifyUserCanLogin() {
+        WordPressLoginPage loginPage = new WordPressLoginPage(driver);
+        String admin = "autotestjava@gmail.com";
+        String adminPassword = "P@ssw0rd1";
+
+        WordPressAdminPage adminPage = loginPage.login(admin, adminPassword);
+
+        Assert.assertTrue("Admin page is loaded", adminPage.isOpen());
+    }
+
 
 }
