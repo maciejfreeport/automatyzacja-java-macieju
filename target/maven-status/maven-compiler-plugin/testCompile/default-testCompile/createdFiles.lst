@@ -1,0 +1,15 @@
+pageobjects\domain\CodeSprinters.class
+selenium\SeleniumTest.class
+wordpress\pages\WordNoteComment.class
+wordpress\domain\User.class
+wordpress\tests\WordPressTests.class
+wordpress\pages\WordNotePage.class
+pageobjects\pages\GoogleResultPage.class
+wordpress\pages\WordPressPage.class
+pageobjects\tests\GoogleSearchTests.class
+pageobjects\pages\GooglePage.class
+calculator\CalculatorTest.class
+wordpress\pages\WordPressMainPage.class
+wordpress\tests\BaseTest.class
+pageobjects\tests\BaseTest.class
+pageobjects\pages\GoogleMainPage.class

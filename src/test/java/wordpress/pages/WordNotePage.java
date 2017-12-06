@@ -46,7 +46,6 @@ public class WordNotePage extends WordPressPage {
     }
 
     public boolean checkComment(String comment, String name) {
-
         List<WebElement> comments = driver.findElements(By.className("comment-body"));
         Stream<WebElement> results = comments.stream();
         long count = results
